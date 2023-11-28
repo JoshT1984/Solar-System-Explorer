@@ -15,7 +15,7 @@ window.addEventListener("click", function () {
   }
   isPlaying = true;
 });
-
+///////////////////-----------Link to threeJS Documentation:   <<<https://threejs.org/docs>>>>
 //Create a Scene
 const scene = new THREE.Scene();
 
@@ -97,7 +97,6 @@ window.addEventListener("resize", () => {
 });
 
 //set animation loop to re-render canvas to adjust sizes
-
 const renderLoop = () => {
   controls.update();
   renderer.render(scene, camera);
