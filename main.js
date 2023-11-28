@@ -15,7 +15,7 @@ window.addEventListener("click", function () {
   }
   isPlaying = true;
 });
-///////////////////-----------Link to threeJS Documentation:   <<<https://threejs.org/docs>>>>
+///////////////////-----------Link to threeJS Documentation:   <<<https://threejs.org/docs>>>> -----Setup with vite
 //Create a Scene
 const scene = new THREE.Scene();
 
@@ -140,6 +140,7 @@ function getFacts() {
   });
 }
 //Change sphere color on mouse move using Greensock Animation Platform (JS Animation Library)
+//GSAP Docs------------------------------------- https://gsap.com/docs/v3/ ---------------------------------------
 function changeSphereColor() {
   let mouseDown = false;
   let rgb = [];
