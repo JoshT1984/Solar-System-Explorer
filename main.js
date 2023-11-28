@@ -2,13 +2,14 @@
 import * as THREE from "three";
 import "./styles.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+let sound = document.createElement("audio");
+let $factsContainer = $(".facts-container");
 
 let isPlaying = false;
 
 window.addEventListener("click", function () {
   if (isPlaying === false) {
     playAudio();
-    Audio.volume = 0.75;
   }
   isPlaying = true;
 });
@@ -51,7 +52,6 @@ const camera = new THREE.PerspectiveCamera(
   10,
   2000
 );
-
 // position camera back on z axis
 camera.position.z = 11;
 
@@ -62,7 +62,6 @@ scene.add(camera);
 const canvas = document.querySelector(".webgl");
 
 //Controls
-
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.enablePan = false;
@@ -105,5 +104,38 @@ const renderLoop = () => {
 renderLoop();
 
 function playAudio() {
-  new Audio("./space.mp3").play();
+  sound.loop = true;
+  sound.volume = 0.1;
+  sound.src = "./space.mp3";
+  sound.play();
+}
+
+let $facts = $("#facts");
+
+$facts.on("click", function () {
+  $factsContainer.toggle();
+
+  getFacts();
+});
+
+
+function getFacts() {
+  // console.log(kelvinConversion);
+  let $ul = $("<ul/>");
+  $.get(`https://api.le-systeme-solaire.net/rest/bodies`, (data) => {
+    let array = data.bodies;
+    for (let i = 0; i < array.length; i++) {
+      let planetObject = array[i];
+      if (planetObject.isPlanet) {
+        console.log(planetObject);
+        let avgTemp = Math.ceil((planetObject.avgTemp - 273.15) * (9 / 5) + 32);
+        // console.log(kelvinConversion);
+        let $li = $(
+          `<li>${planetObject.englishName}- Gravity(mps)=${planetObject.gravity}, Average Temperature(F)= ${avgTemp}</li>`
+        );
+        $ul.append($li);
+        $factsContainer.append($ul);
+      }
+    }
+  });
 }

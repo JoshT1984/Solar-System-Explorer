@@ -2,13 +2,56 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Space Mono", monospace;
 }
 
 body,
 html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
-  background-image: url("./solor3.jpg");
+  background-image: url("/solor3.jpg");
+}
+
+.navbar-nav {
+  display: flex;
+}
+
+.navbar-nav a {
+  margin-left: 16%;
+}
+
+.navbar-custom {
+  background-color: #282828;
+}
+
+.facts-container {
+  display: none;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20.5em;
+  width: 50%;
+  height: 16em;
+  background-color: #161515;
+  border: 10px solid #0a1f2e;
+  border-radius: 10px;
+}
+
+li {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  text-wrap: wrap;
+  line-height: 2;
+  list-style:lower-greek;
+  
+}
+
+li:nth-child(even){
+  color: blue;
+  font-size: 14px;
+  text-wrap: wrap;
+  line-height: 2;
 }
