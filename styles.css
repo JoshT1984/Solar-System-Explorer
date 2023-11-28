@@ -39,17 +39,27 @@ body {
   border-radius: 10px;
 }
 
+#facts {
+  transition: 0.25s;
+  color:white;
+  opacity: .75;
+}
+
+#facts:hover {
+  opacity: 1;
+  color:blue
+}
+
 li {
   text-align: center;
   color: white;
   font-size: 14px;
   text-wrap: wrap;
   line-height: 2;
-  list-style:lower-greek;
-  
+  list-style: lower-greek;
 }
 
-li:nth-child(even){
+li:nth-child(even) {
   color: blue;
   font-size: 14px;
   text-wrap: wrap;

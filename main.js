@@ -2,10 +2,12 @@
 import * as THREE from "three";
 import "./styles.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import gsap from "gsap";
 let sound = document.createElement("audio");
 let $factsContainer = $(".facts-container");
-
 let isPlaying = false;
+
+changeSphereColor();
 
 window.addEventListener("click", function () {
   if (isPlaying === false) {
@@ -113,11 +115,10 @@ function playAudio() {
 let $facts = $("#facts");
 
 $facts.on("click", function () {
-  $factsContainer.toggle();
+  $factsContainer.fadeToggle();
 
   getFacts();
 });
-
 
 function getFacts() {
   // console.log(kelvinConversion);
@@ -136,6 +137,29 @@ function getFacts() {
         $ul.append($li);
         $factsContainer.append($ul);
       }
+    }
+  });
+}
+//Change sphere color on mouse move using Greensock Animation Platform (JS Animation Library)
+function changeSphereColor() {
+  let mouseDown = false;
+  let rgb = [];
+  window.addEventListener("mousedown", () => (mouseDown = true));
+  window.addEventListener("mouseup", () => (mouseDown = false));
+
+  window.addEventListener("mousemove", (e) => {
+    if (mouseDown) {
+      rgb = [
+        Math.round((e.pageX / sizes.width) * 255),
+        Math.round((e.pageY / sizes.height) * 255),
+        Math.floor(Math.random() * 255),
+      ];
+      let newColor = new THREE.Color(`rgb(${rgb.join(",")})`);
+      gsap.to(sphere.material.color, {
+        r: newColor.r,
+        g: newColor.g,
+        b: newColor.b,
+      });
     }
   });
 }
