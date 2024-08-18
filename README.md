@@ -1,6 +1,8 @@
 # Solar System Explorer
 
 Welcome to the Solar System Explorer project! This application showcases interactive solar system features using Three.js and provides a rich user experience with background music and dynamic visuals.
+![Solar-System-Explorer](https://github.com/user-attachments/assets/65b12fd3-1767-4403-b29e-2da52697b13c)
+
 
 ## Features
 
