@@ -27,7 +27,7 @@ Welcome to the Solar System Explorer project! This application showcases interac
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/solar-system-explorer.git](https://github.com/JoshT1984/threeJS_Project.git
+   git clone https://github.com/JoshT1984/Solar-System-Explorer.git
 
 3. **Install Dependencies**
    
